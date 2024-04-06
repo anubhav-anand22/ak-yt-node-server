@@ -20,7 +20,7 @@ app.get("/api/download-vid", async (req, res) => {
 
     if (!format) return res.status(404).send("No format found");
 
-    res.setHeader("Content-Type", format.mimeType);
+    res.setHeader("Content-Type", "audio/m4a");
     res.setHeader("Content-Length", format.contentLength);
     res.setHeader(
       "Content-Disposition",
@@ -35,7 +35,6 @@ app.get("/api/download-vid", async (req, res) => {
   } catch (e) {
     console.log(e);
     res.status(500).send("Something went wrong");
-    console.log(e);
   }
 });
 
